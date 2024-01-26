@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace SylvieWebsite-client build",
+    "dev": "yarn workspace SylvieWebsite-server dev",
+    "dev:debug": "yarn workspace SylvieWebsite-server dev:debug",
+    "heroku-postbuild": "yarn workspace SylvieWebsite-client build",
+    "start": "yarn workspace SylvieWebsite-server start",
+    "dev:cypress": "yarn workspace SylvieWebsite-server dev:e2e",
+    "e2e:open": "yarn workspace SylvieWebsite-e2e e2e:open",
+    "e2e:run": "yarn workspace SylvieWebsite-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^16.18"
+  }
+}
