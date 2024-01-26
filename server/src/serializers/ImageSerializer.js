@@ -1,6 +1,6 @@
 class ImageSerializer {
   static cleanImage(image) {
-    const allowedAttributes = ["id", "title", "year", "medium", "dimensions", "imageUrl"];
+    const allowedAttributes = ["id", "title", "year", "medium", "dimensions", "image"];
     const serializedImage = {};
     for (const attribute of allowedAttributes) {
       serializedImage[attribute] = image[attribute];

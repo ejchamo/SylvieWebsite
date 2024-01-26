@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import Dropzone from "react-dropzone";
 
 const NewImageForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -8,21 +9,31 @@ const NewImageForm = (props) => {
     year: "",
     medium: "",
     dimensions: "",
-    imageUrl: "",
+    image: {},
   });
 
   const postImage = async (newImageData) => {
+    const newImageBody = new FormData();
+    newImageBody.append("title", newImage.title);
+    newImageBody.append("year", newImage.year);
+    newImageBody.append("medium", newImage.medium);
+    newImageBody.append("dimensions", newImage.dimensions);
+    newImageBody.append("image", newImage.image);
+
     try {
-      const response = await fetch(`/api/v1/images`, {
+      const response = await fetch("/api/v1/images", {
         method: "POST",
-        headers: new Headers({
-          "Content-Type": "application/json",
-        }),
-        body: JSON.stringify(newImageData),
+        headers: {
+          Accept: "image/jpeg",
+        },
+        body: newImageBody,
       });
+      if (!response.ok) {
+        throw new Error(`${response.status} (${response.statusText})`);
+      }
       setShouldRedirect(true);
     } catch (error) {
-      console.error(`Error in fetch: ${error.message}`);
+      console.error(`Error in addImage Fetch: ${error.message}`);
     }
   };
 
@@ -34,6 +45,13 @@ const NewImageForm = (props) => {
     setNewImage({
       ...newImage,
       [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+
+  const handleImageUpload = (acceptedImage) => {
+    setNewImage({
+      ...newImage,
+      image: acceptedImage[0],
     });
   };
 
@@ -66,10 +84,17 @@ const NewImageForm = (props) => {
           value={newImage.dimensions}
         />
       </label>
-      <label>
-        Image URL:
-        <input type="text" name="imageUrl" onChange={handleInputChange} value={newImage.imageUrl} />
-      </label>
+
+      <Dropzone onDrop={handleImageUpload}>
+        {({ getRootProps, getInputProps }) => (
+          <section>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <p>Upload Your Image - drag 'n' drop or click to upload</p>
+            </div>
+          </section>
+        )}
+      </Dropzone>
 
       <input className="button" type="submit" value="Submit" />
     </form>

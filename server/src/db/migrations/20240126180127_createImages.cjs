@@ -12,7 +12,7 @@ exports.up = async (knex) => {
     table.integer("year").notNullable();
     table.string("medium").notNullable();
     table.string("dimensions").notNullable();
-    table.string("imageUrl").notNullable();
+    table.string("image").notNullable();
     table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
     table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
   });
