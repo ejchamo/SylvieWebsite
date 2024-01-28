@@ -3,14 +3,14 @@ import getClientIndexPath from "../config/getClientIndexPath.js";
 
 const router = new express.Router();
 
-const clientRoutes = ["/", "/user-sessions/new", "/users/new"];
-const authedClientRoutes = ["/profile"];
+const clientRoutes = ["/", "/user-sessions/new", "/paintings"];
+const authedClientRoutes = ["/profile", "/new-image"];
 
 router.get(authedClientRoutes, (req, res) => {
   if (req.user) {
     res.sendFile(getClientIndexPath());
   } else {
-    res.redirect("/user-sessions/new")
+    res.redirect("/");
   }
 });
 
