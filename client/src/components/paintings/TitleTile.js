@@ -7,7 +7,6 @@ const TitleTile = (props) => {
   const handleClick = () => {
     setSelectedTitle(title);
     getImage(title).then((response) => {
-      console.log("reponse in titletile", response);
       setImage(response);
     });
   };
