@@ -38,7 +38,7 @@ const NewImageForm = (props) => {
   };
 
   if (shouldRedirect) {
-    return <Redirect push to="/gallery" />;
+    return <Redirect push to="/paintings" />;
   }
 
   const handleInputChange = (event) => {

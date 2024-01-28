@@ -6,7 +6,8 @@ import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.scss";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
-import NewImageForm from "./gallery/NewImageForm";
+import NewImageForm from "./paintings/NewImageForm";
+import Paintings from "./paintings/Paintings";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,6 +33,7 @@ const App = (props) => {
         </Route>
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/new-image" component={NewImageForm} />
+        <Route exact path="/paintings" component={Paintings} />
       </Switch>
     </Router>
   );
