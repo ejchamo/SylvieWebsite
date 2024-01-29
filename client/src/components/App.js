@@ -33,7 +33,13 @@ const App = (props) => {
         </Route>
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/new-image" component={NewImageForm} />
-        <Route exact path="/paintings" component={Paintings} />
+        <Route
+          exact
+          path="/paintings"
+          render={(props) => {
+            return <Paintings user={currentUser} {...props} />;
+          }}
+        />
       </Switch>
     </Router>
   );

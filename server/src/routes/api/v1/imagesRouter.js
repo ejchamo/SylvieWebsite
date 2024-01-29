@@ -3,6 +3,7 @@ import { Image } from "../../../models/index.js";
 import { ValidationError } from "objection";
 import ImageSerializer from "../../../serializers/ImageSerializer.js";
 import uploadImage from "../../../services/UploadImage.js";
+import deleteImage from "../../../services/DeleteImage.js";
 
 const imagesRouter = new express.Router();
 
@@ -58,6 +59,22 @@ imagesRouter.post("/", uploadImage.single("image"), async (req, res) => {
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data });
     }
+    return res.status(500).json({ errors: error });
+  }
+});
+
+imagesRouter.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const image = await Image.query().findById(id);
+    const key = image.image.split("/").pop();
+    console.log("KEY", key);
+    await Image.query().deleteById(id);
+    deleteImage(key);
+
+    return res.status(200).json({ id });
+  } catch (error) {
+    console.log("ERROR LOG", error);
     return res.status(500).json({ errors: error });
   }
 });
