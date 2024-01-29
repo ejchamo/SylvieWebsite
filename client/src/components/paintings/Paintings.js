@@ -4,7 +4,7 @@ import YearsList from "./YearsList";
 import TitlesList from "./TitlesList";
 import ImageTile from "./ImageTile";
 
-const Paintings = () => {
+const Paintings = (props) => {
   const [years, setYears] = useState([]);
   const [titles, setTitles] = useState([]);
   const [image, setImage] = useState(undefined);
@@ -38,7 +38,7 @@ const Paintings = () => {
           />
         </div>
         <div className="cell medium-6">
-          <ImageTile image={image} />
+          <ImageTile image={image} user={props.user} />
         </div>
       </div>
     </>

@@ -14,7 +14,7 @@ const NewImageForm = (props) => {
 
   const postImage = async (newImageData) => {
     const newImageBody = new FormData();
-    newImageBody.append("title", newImage.title);
+    newImageBody.append("title", newImage.title.trim());
     newImageBody.append("year", newImage.year);
     newImageBody.append("medium", newImage.medium);
     newImageBody.append("dimensions", newImage.dimensions);
