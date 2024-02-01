@@ -8,6 +8,7 @@ import SignInForm from "./authentication/SignInForm";
 import NavBar from "./layout/NavBar";
 import NewImageForm from "./paintings/NewImageForm";
 import Paintings from "./paintings/Paintings";
+import NewExperienceForm from "./cv/NewExperienceForm";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
