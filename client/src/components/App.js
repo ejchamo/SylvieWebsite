@@ -8,6 +8,7 @@ import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import NewImageForm from "./paintings/NewImageForm";
 import Paintings from "./paintings/Paintings";
+import NewExperienceForm from "./cv/NewExperienceForm";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -40,6 +41,7 @@ const App = (props) => {
             return <Paintings user={currentUser} {...props} />;
           }}
         />
+        <Route exact path="/new-experience" component={NewExperienceForm} />
       </Switch>
     </Router>
   );

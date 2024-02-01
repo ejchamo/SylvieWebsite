@@ -52,8 +52,7 @@ imagesRouter.post("/", uploadImage.single("image"), async (req, res) => {
     };
     const newImage = await Image.query().insertAndFetch(data);
 
-    const serializedImage = ImageSerializer.cleanImage(newImage);
-    return res.status(201).json({ newImage: serializedImage });
+    return res.status(201).json({ newImage: newImage });
   } catch (error) {
     console.log("ERROR LOG", error);
     if (error instanceof ValidationError) {
