@@ -1,13 +1,12 @@
 import React from "react";
-import deleteImage from "../../services/deleteImage";
 
 const DeleteButton = (props) => {
-  const { image } = props;
+  const { service, id } = props;
 
   const handleDelete = async () => {
     try {
-      await deleteImage(image.id);
-      location.href = "/paintings";
+      await service(id);
+      window.location.reload(true);
     } catch (error) {
       console.log(error);
     }

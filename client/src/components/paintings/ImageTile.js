@@ -1,5 +1,6 @@
 import React from "react";
-import DeleteButton from "./DeleteButton";
+import DeleteButton from "../layout/DeleteButton";
+import deleteImage from "../../services/deleteImage";
 
 const ImageTile = (props) => {
   const { image, user } = props;
@@ -10,7 +11,7 @@ const ImageTile = (props) => {
   if (image) {
     let imageDetails = image.image;
     if (user && user.admin) {
-      deleteOption = <DeleteButton image={image.image} />;
+      deleteOption = <DeleteButton service={deleteImage} id={imageDetails.id} />;
     }
 
     imageTile = (
