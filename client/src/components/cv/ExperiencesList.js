@@ -5,15 +5,7 @@ const ExperienceList = (props) => {
   const { experiences, user } = props;
 
   const experienceTiles = experiences.map((experience) => {
-    return (
-      <ExperienceTile
-        key={experience.id}
-        user={user}
-        id={experience.id}
-        title={experience.title}
-        description={experience.description}
-      />
-    );
+    return <ExperienceTile key={experience.id} user={user} experience={experience} />;
   });
 
   return <div>{experienceTiles}</div>;

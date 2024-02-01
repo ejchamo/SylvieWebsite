@@ -58,7 +58,7 @@ const NewExperienceForm = (props) => {
         </label>
         <label>
           Description:
-          <input
+          <textarea
             type="text"
             name="description"
             value={newExperience.description}
