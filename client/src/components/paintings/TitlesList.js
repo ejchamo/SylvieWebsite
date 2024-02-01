@@ -16,7 +16,7 @@ const TitlesList = (props) => {
     );
   });
 
-  return <div>{titleTiles}</div>;
+  return <div className="titles-list">{titleTiles}</div>;
 };
 
 export default TitlesList;

@@ -16,7 +16,7 @@ const YearsList = (props) => {
     );
   });
 
-  return <div>{yearTiles}</div>;
+  return <div className="years-list">{yearTiles}</div>;
 };
 
 export default YearsList;

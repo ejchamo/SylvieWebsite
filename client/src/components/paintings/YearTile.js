@@ -18,8 +18,8 @@ const YearTile = (props) => {
   }
 
   return (
-    <div className={isSelected}>
-      <h1 onClick={handleClick}>{year}</h1>
+    <div className={`year-tile ${isSelected}`} onClick={handleClick}>
+      {year}
     </div>
   );
 };

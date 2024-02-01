@@ -22,3 +22,15 @@
   background-color: green;
   color: #000;
 }
+
+.NavBar {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.years-list,
+.titles-list {
+  padding: 10px;
+}
