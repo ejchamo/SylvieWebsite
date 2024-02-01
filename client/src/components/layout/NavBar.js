@@ -5,16 +5,22 @@ import SignOutButton from "../authentication/SignOutButton";
 const NavBar = ({ user }) => {
   let signoutButton = <></>;
   let newImageButton = <></>;
+  let newExperienceButton = <></>;
 
   if (user) {
-    signoutButton = [
-      <li key="sign-out">
-        <SignOutButton />
-      </li>,
-    ];
     newImageButton = [
       <li key="new-image">
         <Link to="/new-image">New Image</Link>
+      </li>,
+    ];
+    newExperienceButton = [
+      <li key="new-experience">
+        <Link to="/new-experience">New Experience</Link>
+      </li>,
+    ];
+    signoutButton = [
+      <li key="sign-out">
+        <SignOutButton />
       </li>,
     ];
   }
@@ -23,7 +29,9 @@ const NavBar = ({ user }) => {
     <div className="NavBar">
       <h4>Sylvie Mayer</h4>
       <Link to="/paintings">Paintings</Link>
+      <Link to="/cv">CV</Link>
       {newImageButton}
+      {newExperienceButton}
       {signoutButton}
     </div>
   );

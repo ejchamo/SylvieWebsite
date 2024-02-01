@@ -9,6 +9,7 @@ import NavBar from "./layout/NavBar";
 import NewImageForm from "./paintings/NewImageForm";
 import Paintings from "./paintings/Paintings";
 import NewExperienceForm from "./cv/NewExperienceForm";
+import Experiences from "./cv/Experiences";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -42,6 +43,14 @@ const App = (props) => {
                 path="/paintings"
                 render={(props) => {
                   return <Paintings user={currentUser} {...props} />;
+                }}
+              />
+              <Route exact path="/new-experience" component={NewExperienceForm} />
+              <Route
+                exact
+                path="/cv"
+                render={(props) => {
+                  return <Experiences user={currentUser} {...props} />;
                 }}
               />
             </Switch>

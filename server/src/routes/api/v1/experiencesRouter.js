@@ -32,6 +32,22 @@ experiencesRouter.post("/", async (req, res) => {
   }
 });
 
+experiencesRouter.patch("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { body } = req;
+    const experience = await Experience.query().findById(id);
+    const updatedExperience = await experience.$query().patchAndFetch(body);
+
+    return res.status(200).json({ updatedExperience });
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      return res.status(422).json({ errors: error.data });
+    }
+    return res.status(500).json({ errors: error });
+  }
+});
+
 experiencesRouter.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
