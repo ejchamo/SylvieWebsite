@@ -14,7 +14,7 @@ const ImageTile = (props) => {
     }
 
     imageTile = (
-      <div>
+      <div className="image-tile">
         {deleteOption}
         <img src={imageDetails.image} alt={imageDetails.title} />
         {imageDetails.title}

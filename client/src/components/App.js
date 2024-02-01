@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { hot } from "react-hot-loader/root";
 
 import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.scss";
 import SignInForm from "./authentication/SignInForm";
-import TopBar from "./layout/TopBar";
+import NavBar from "./layout/NavBar";
 import NewImageForm from "./paintings/NewImageForm";
 import Paintings from "./paintings/Paintings";
 
@@ -26,21 +26,27 @@ const App = (props) => {
 
   return (
     <Router>
-      <TopBar user={currentUser} />
-      <Switch>
-        <Route exact path="/">
-          <h2>Hello from react</h2>
-        </Route>
-        <Route exact path="/user-sessions/new" component={SignInForm} />
-        <Route exact path="/new-image" component={NewImageForm} />
-        <Route
-          exact
-          path="/paintings"
-          render={(props) => {
-            return <Paintings user={currentUser} {...props} />;
-          }}
-        />
-      </Switch>
+      <div className="grid-x">
+        <div className="cell medium-2">
+          <NavBar user={currentUser} />
+        </div>
+        <div className="cell medium-10">
+          <Switch>
+            <Switch>
+              <Redirect exact from="/" to="/paintings" />
+              <Route exact path="/user-sessions/new" component={SignInForm} />
+              <Route exact path="/new-image" component={NewImageForm} />
+              <Route
+                exact
+                path="/paintings"
+                render={(props) => {
+                  return <Paintings user={currentUser} {...props} />;
+                }}
+              />
+            </Switch>
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 };
