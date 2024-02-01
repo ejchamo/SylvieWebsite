@@ -8,11 +8,12 @@ class Experience extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["title", "description"],
+      required: ["title", "description", "order"],
       properties: {
         title: { type: "string", minLength: 1, maxLength: 255 },
         description: { type: "string", minLength: 1, maxLength: 255 },
-        order: { type: "integer" },
+        // make the order property be either string or number
+        order: { type: ["string", "number"], minLength: 1 },
       },
     };
   }
