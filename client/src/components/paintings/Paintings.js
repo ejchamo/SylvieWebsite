@@ -18,10 +18,9 @@ const Paintings = (props) => {
   }, []);
 
   return (
-    <>
-      <h1>Paintings</h1>
+    <div className="paintings-container">
       <div className="grid-x grid-margin-x">
-        <div className="cell medium-2">
+        <div className="cell medium-1">
           <YearsList
             years={years}
             selectedYear={selectedYear}
@@ -29,7 +28,7 @@ const Paintings = (props) => {
             setTitles={setTitles}
           />
         </div>
-        <div className="cell medium-2">
+        <div className="cell medium-1">
           <TitlesList
             titles={titles}
             setImage={setImage}
@@ -37,11 +36,11 @@ const Paintings = (props) => {
             setSelectedTitle={setSelectedTitle}
           />
         </div>
-        <div className="cell medium-6">
+        <div className="cell medium-10">
           <ImageTile image={image} user={props.user} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

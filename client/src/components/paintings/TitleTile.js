@@ -18,8 +18,8 @@ const TitleTile = (props) => {
   }
 
   return (
-    <div className={isSelected} onClick={handleClick}>
-      <h1>{title}</h1>
+    <div className={`title-tile ${isSelected}`} onClick={handleClick}>
+      {title}
     </div>
   );
 };
