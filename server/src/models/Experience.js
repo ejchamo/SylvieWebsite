@@ -12,7 +12,6 @@ class Experience extends Model {
       properties: {
         title: { type: "string", minLength: 1, maxLength: 255 },
         description: { type: "string", minLength: 1, maxLength: 255 },
-        // make the order property be either string or number
         order: { type: ["string", "number"], minLength: 1 },
       },
     };
