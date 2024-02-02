@@ -21,7 +21,7 @@ imagesRouter.get("/years", async (req, res) => {
 imagesRouter.get("/:year", async (req, res) => {
   try {
     const { year } = req.params;
-    const response = await Image.query().where("year", year);
+    const response = await Image.query().where("year", year).orderBy("order");
     const titles = response.map((title) => title.title);
 
     return res.status(200).json({ titles });
@@ -53,6 +53,24 @@ imagesRouter.post("/", uploadImage.single("image"), async (req, res) => {
     const newImage = await Image.query().insertAndFetch(data);
 
     return res.status(201).json({ newImage: newImage });
+  } catch (error) {
+    console.log("ERROR LOG", error);
+    if (error instanceof ValidationError) {
+      return res.status(422).json({ errors: error.data });
+    }
+    return res.status(500).json({ errors: error });
+  }
+});
+
+imagesRouter.patch("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { body } = req;
+    console.log("body in patch request", body);
+    const image = await Image.query().findById(id);
+    const updatedImage = await image.$query().patchAndFetch(body);
+
+    return res.status(200).json({ updatedImage });
   } catch (error) {
     console.log("ERROR LOG", error);
     if (error instanceof ValidationError) {

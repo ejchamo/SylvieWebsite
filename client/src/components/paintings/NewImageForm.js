@@ -10,6 +10,7 @@ const NewImageForm = (props) => {
     medium: "",
     dimensions: "",
     image: {},
+    order: "",
   });
 
   const postImage = async (newImageData) => {
@@ -19,6 +20,7 @@ const NewImageForm = (props) => {
     newImageBody.append("medium", newImage.medium);
     newImageBody.append("dimensions", newImage.dimensions);
     newImageBody.append("image", newImage.image);
+    newImageBody.append("order", newImage.order);
 
     try {
       const response = await fetch("/api/v1/images", {
@@ -83,6 +85,10 @@ const NewImageForm = (props) => {
           onChange={handleInputChange}
           value={newImage.dimensions}
         />
+      </label>
+      <label>
+        Order:
+        <input type="number" name="order" onChange={handleInputChange} value={newImage.order} />
       </label>
 
       <Dropzone onDrop={handleImageUpload}>
