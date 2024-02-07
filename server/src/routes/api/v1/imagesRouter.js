@@ -7,6 +7,19 @@ import deleteImage from "../../../services/DeleteImage.js";
 
 const imagesRouter = new express.Router();
 
+imagesRouter.get("/carousel", async (req, res) => {
+  try {
+    const response = await Image.query().where("carousel", true).orderBy("order");
+    const images = response.map((image) => {
+      return ImageSerializer.cleanImage(image);
+    });
+
+    return res.status(200).json({ images });
+  } catch (error) {
+    return res.status(500).json({ errors: error });
+  }
+});
+
 imagesRouter.get("/years", async (req, res) => {
   try {
     const response = await Image.query().distinct("year");
@@ -50,6 +63,7 @@ imagesRouter.post("/", uploadImage.single("image"), async (req, res) => {
       ...body,
       image: req.file.location,
     };
+    console.log(data);
     const newImage = await Image.query().insertAndFetch(data);
 
     return res.status(201).json({ newImage: newImage });
