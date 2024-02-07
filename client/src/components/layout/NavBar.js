@@ -27,7 +27,7 @@ const NavBar = ({ user }) => {
 
   return (
     <div className="NavBar">
-      <h4>Sylvie Mayer</h4>
+      <Link to="/">Sylvie Mayer</Link>
       <Link to="/paintings">Paintings</Link>
       <Link to="/cv">CV</Link>
       {newImageButton}
