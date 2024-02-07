@@ -66,12 +66,10 @@ imagesRouter.post("/", uploadImage.single("image"), async (req, res) => {
       ...body,
       image: req.file.location,
     };
-    console.log(data);
     const newImage = await Image.query().insertAndFetch(data);
 
     return res.status(201).json({ newImage: newImage });
   } catch (error) {
-    console.log("ERROR LOG", error);
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data });
     }
@@ -83,13 +81,11 @@ imagesRouter.patch("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { body } = req;
-    console.log("body in patch request", body);
     const image = await Image.query().findById(id);
     const updatedImage = await image.$query().patchAndFetch(body);
 
     return res.status(200).json({ updatedImage });
   } catch (error) {
-    console.log("ERROR LOG", error);
     if (error instanceof ValidationError) {
       return res.status(422).json({ errors: error.data });
     }
@@ -102,13 +98,11 @@ imagesRouter.delete("/:id", async (req, res) => {
     const { id } = req.params;
     const image = await Image.query().findById(id);
     const key = image.image.split("/").pop();
-    console.log("KEY", key);
     await Image.query().deleteById(id);
     deleteImage(key);
 
     return res.status(200).json({ id });
   } catch (error) {
-    console.log("ERROR LOG", error);
     return res.status(500).json({ errors: error });
   }
 });

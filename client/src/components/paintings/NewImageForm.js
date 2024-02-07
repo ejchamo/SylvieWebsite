@@ -13,7 +13,6 @@ const NewImageForm = (props) => {
     order: "",
     carousel: false,
   });
-  console.log(newImage);
 
   const postImage = async (newImageData) => {
     const newImageBody = new FormData();
