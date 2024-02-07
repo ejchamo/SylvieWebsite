@@ -4,8 +4,10 @@ import { hot } from "react-hot-loader/root";
 
 import getCurrentUser from "../services/getCurrentUser";
 import "../assets/scss/main.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import SignInForm from "./authentication/SignInForm";
 import NavBar from "./layout/NavBar";
+import Homepage from "./homepage/Homepage";
 import NewImageForm from "./paintings/NewImageForm";
 import Paintings from "./paintings/Paintings";
 import NewExperienceForm from "./cv/NewExperienceForm";
@@ -35,7 +37,7 @@ const App = (props) => {
         <div className="cell medium-10">
           <Switch>
             <Switch>
-              <Redirect exact from="/" to="/paintings" />
+              <Route exact path="/" component={Homepage} />
               <Route exact path="/user-sessions/new" component={SignInForm} />
               <Route exact path="/new-image" component={NewImageForm} />
               <Route

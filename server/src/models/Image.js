@@ -16,6 +16,7 @@ class Image extends Model {
         dimensions: { type: "string", minLength: 1, maxLength: 255 },
         image: { type: "string", minLength: 1, maxLength: 255 },
         order: { type: ["string", "number"], minLength: 1 },
+        carousel: { type: ["string", "boolean"] },
       },
     };
   }

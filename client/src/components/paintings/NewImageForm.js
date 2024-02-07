@@ -11,6 +11,7 @@ const NewImageForm = (props) => {
     dimensions: "",
     image: {},
     order: "",
+    carousel: false,
   });
 
   const postImage = async (newImageData) => {
@@ -21,6 +22,7 @@ const NewImageForm = (props) => {
     newImageBody.append("dimensions", newImage.dimensions);
     newImageBody.append("image", newImage.image);
     newImageBody.append("order", newImage.order);
+    newImageBody.append("carousel", newImage.carousel);
 
     try {
       const response = await fetch("/api/v1/images", {
@@ -89,6 +91,17 @@ const NewImageForm = (props) => {
       <label>
         Order:
         <input type="number" name="order" onChange={handleInputChange} value={newImage.order} />
+      </label>
+      <label>
+        Carousel:
+        {/* add a true or false input for carousel */}
+        {/* make the checkbox uncheck if clicked again */}
+        <input
+          type="checkbox"
+          name="carousel"
+          onChange={handleInputChange}
+          value={!newImage.carousel}
+        />
       </label>
 
       <Dropzone onDrop={handleImageUpload}>
