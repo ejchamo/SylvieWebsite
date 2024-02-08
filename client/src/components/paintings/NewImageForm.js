@@ -94,8 +94,6 @@ const NewImageForm = (props) => {
       </label>
       <label>
         Carousel:
-        {/* add a true or false input for carousel */}
-        {/* make the checkbox uncheck if clicked again */}
         <input
           type="checkbox"
           name="carousel"
