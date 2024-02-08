@@ -1,11 +1,12 @@
 import React from "react";
 import CarouselImages from "./CarouselImages";
 
-const Homepage = () => {
+const Homepage = (props) => {
+  const { user } = props;
   return (
     <div>
       <h1>Homepage</h1>
-      <CarouselImages />
+      <CarouselImages user={user} />
     </div>
   );
 };

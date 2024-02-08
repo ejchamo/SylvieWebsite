@@ -37,7 +37,13 @@ const App = (props) => {
         <div className="cell medium-10">
           <Switch>
             <Switch>
-              <Route exact path="/" component={Homepage} />
+              <Route
+                exact
+                path="/"
+                render={(props) => {
+                  return <Homepage user={currentUser} {...props} />;
+                }}
+              />
               <Route exact path="/user-sessions/new" component={SignInForm} />
               <Route exact path="/new-image" component={NewImageForm} />
               <Route
