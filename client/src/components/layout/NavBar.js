@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+
 const NavBar = ({ user }) => {
   let signoutButton = <></>;
   let newImageButton = <></>;
@@ -25,11 +28,18 @@ const NavBar = ({ user }) => {
     ];
   }
 
+  const instagramLink = (
+    <a href="https://www.instagram.com/sylvie__mayer/" target="_blank" rel="noopener noreferrer">
+      <FontAwesomeIcon icon={faInstagram} />
+    </a>
+  );
+
   return (
     <div className="NavBar">
       <Link to="/">Sylvie Mayer</Link>
       <Link to="/paintings">Paintings</Link>
       <Link to="/cv">CV</Link>
+      {instagramLink}
       {newImageButton}
       {newExperienceButton}
       {signoutButton}
