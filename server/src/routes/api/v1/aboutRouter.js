@@ -12,4 +12,16 @@ aboutRouter.get("/", async (req, res) => {
   }
 });
 
+aboutRouter.patch("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const about = await About.query().findById(id);
+    const { details } = req.body;
+    const updatedAbout = await about.$query().patchAndFetch({ details });
+    return res.status(200).json({ about: updatedAbout });
+  } catch (error) {
+    return res.status(500).json({ errors: error });
+  }
+});
+
 export default aboutRouter;
