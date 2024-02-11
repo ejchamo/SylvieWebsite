@@ -10,6 +10,8 @@ const ContactForm = () => {
     message: "",
   });
 
+  const [sendStatus, setSendStatus] = useState(false);
+
   const handleChange = (event) => {
     setEmailDetails({
       ...emailDetails,
@@ -19,8 +21,16 @@ const ContactForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    sendEmail(emailDetails);
+    sendEmail(emailDetails).then((response) => {
+      if (response.message === "Email sent") {
+        setSendStatus(true);
+      }
+    });
   };
+
+  if (sendStatus) {
+    return <h2>Email Sent</h2>;
+  }
 
   return (
     <div>
