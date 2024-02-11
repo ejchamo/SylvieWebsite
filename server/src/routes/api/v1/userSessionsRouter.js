@@ -7,7 +7,6 @@ sessionRouter.post("/", (req, res, next) => {
   return passport.authenticate("local", (err, user) => {
     if (err) {
       // eslint-disable-next-line no-console
-      console.log(err);
     }
 
     if (user) {
@@ -23,8 +22,6 @@ sessionRouter.post("/", (req, res, next) => {
 sessionRouter.get("/current", async (req, res) => {
   if (req.user) {
     res.status(200).json(req.user);
-  } else {
-    res.status(401).json(undefined);
   }
 });
 

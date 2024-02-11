@@ -39,6 +39,7 @@ const NavBar = ({ user }) => {
       <Link to="/">Sylvie Mayer</Link>
       <Link to="/paintings">Paintings</Link>
       <Link to="/cv">CV</Link>
+      <Link to="/contact">Contact</Link>
       {instagramLink}
       {newImageButton}
       {newExperienceButton}

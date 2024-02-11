@@ -18,9 +18,7 @@ const EditImageForm = (props) => {
       await editImage(newImage.id, newImage);
       setIsEditing(false);
       window.location.reload(true);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (
