@@ -13,6 +13,7 @@ import Paintings from "./paintings/Paintings";
 import NewExperienceForm from "./cv/NewExperienceForm";
 import Experiences from "./cv/Experiences";
 import ContactForm from "./contactForm/ContactForm";
+import About from "./about/About";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -63,6 +64,13 @@ const App = (props) => {
                 }}
               />
               <Route exact path="/contact" component={ContactForm} />
+              <Route
+                exact
+                path="/about"
+                render={(props) => {
+                  return <About user={currentUser} {...props} />;
+                }}
+              />
               <Redirect to="/" />
             </Switch>
           </Switch>

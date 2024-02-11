@@ -2,5 +2,6 @@
 const User = require("./User.js");
 const Image = require("./Image.js");
 const Experience = require("./Experience.js");
+const About = require("./About.js");
 
-module.exports = { User, Image, Experience };
+module.exports = { User, Image, Experience, About };
