@@ -3,6 +3,8 @@ import getNodeEnv from "./config/getNodeEnv.js";
 import getDatabaseUrl from "./config/getDatabaseUrl.cjs";
 
 const development = {
+  email: { key: process.env.EMAIL },
+  emailPassword: { key: process.env.EMAIL_PASSWORD },
   awsAccess: { key: process.env.AWS_ACCESS_KEY_ID },
   awsSecret: { key: process.env.AWS_SECRET_ACCESS_KEY },
   s3Bucket: { name: process.env.S3_BUCKET_PRODUCTION },

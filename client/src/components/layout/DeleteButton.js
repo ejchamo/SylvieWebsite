@@ -7,9 +7,7 @@ const DeleteButton = (props) => {
     try {
       await service(id);
       window.location.reload(true);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (

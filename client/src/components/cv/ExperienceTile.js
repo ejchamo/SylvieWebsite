@@ -36,9 +36,7 @@ const ExperienceTile = (props) => {
       await editExperience(experience.id, newExperience);
       setIsEditing(false);
       window.location.reload(true);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   if (isEditing) {
