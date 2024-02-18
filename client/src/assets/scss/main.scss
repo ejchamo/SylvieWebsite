@@ -56,3 +56,26 @@ pre {
   height: 40%;
   width: 40%;
 }
+
+.display {
+  padding: 5%;
+}
+
+.carousel-indicators,
+.carousel-control-next,
+.carousel-control-prev {
+  display: none !important;
+}
+
+.carousel img {
+  height: 80vh !important;
+  width: auto;
+  object-fit: contain;
+}
+
+.image-options {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -67,7 +67,7 @@ const CarouselImages = (props) => {
       <Carousel activeIndex={index} onSelect={handleSelect}>
         {imageItems}
       </Carousel>
-      {imageOptions}
+      <div className="image-options">{imageOptions}</div>
     </>
   );
 };
