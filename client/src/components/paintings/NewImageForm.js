@@ -4,6 +4,7 @@ import Dropzone from "react-dropzone";
 
 const NewImageForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
   const [newImage, setNewImage] = useState({
     title: "",
     year: "",
@@ -57,6 +58,8 @@ const NewImageForm = (props) => {
       ...newImage,
       image: acceptedImage[0],
     });
+    const objectUrl = URL.createObjectURL(acceptedImage[0]);
+    setImagePreviewUrl(objectUrl);
   };
 
   const handleSubmit = (event) => {
@@ -108,6 +111,7 @@ const NewImageForm = (props) => {
             <div {...getRootProps()}>
               <input {...getInputProps()} />
               <p>Upload Your Image - drag 'n' drop or click to upload</p>
+              {imagePreviewUrl && <img src={imagePreviewUrl} alt="Image preview" />}
             </div>
           </section>
         )}

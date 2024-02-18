@@ -36,7 +36,7 @@ const App = (props) => {
         <div className="cell medium-2">
           <NavBar user={currentUser} />
         </div>
-        <div className="cell medium-10">
+        <div className="cell medium-10 display">
           <Switch>
             <Switch>
               <Route

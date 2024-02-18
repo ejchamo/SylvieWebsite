@@ -30,17 +30,27 @@ const NavBar = ({ user }) => {
 
   const instagramLink = (
     <a href="https://www.instagram.com/sylvie__mayer/" target="_blank" rel="noopener noreferrer">
-      <FontAwesomeIcon icon={faInstagram} />
+      <FontAwesomeIcon icon={faInstagram} className="navlink instagram" />
     </a>
   );
 
   return (
     <div className="NavBar">
-      <Link to="/">Sylvie Mayer</Link>
-      <Link to="/paintings">Paintings</Link>
-      <Link to="/about">About</Link>
-      <Link to="/cv">CV</Link>
-      <Link to="/contact">Contact</Link>
+      <Link to="/" className="navlink">
+        Sylvie Mayer
+      </Link>
+      <Link to="/paintings" className="navlink">
+        Paintings
+      </Link>
+      <Link to="/about" className="navlink">
+        About
+      </Link>
+      <Link to="/cv" className="navlink">
+        CV
+      </Link>
+      <Link to="/contact" className="navlink">
+        Contact
+      </Link>
       {instagramLink}
       {newImageButton}
       {newExperienceButton}
