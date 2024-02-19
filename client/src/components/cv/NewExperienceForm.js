@@ -5,6 +5,7 @@ const NewExperienceForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [newExperience, setNewExperience] = useState({
     title: "",
+    exhibitionName: "",
     description: "",
     order: "",
   });
@@ -53,6 +54,15 @@ const NewExperienceForm = (props) => {
             type="text"
             name="title"
             value={newExperience.title}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Exhibition Name:
+          <input
+            type="text"
+            name="exhibitionName"
+            value={newExperience.exhibitionName}
             onChange={handleInputChange}
           />
         </label>

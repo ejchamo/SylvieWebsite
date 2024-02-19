@@ -11,7 +11,8 @@ class Experience extends Model {
       required: ["title", "description", "order"],
       properties: {
         title: { type: "string", minLength: 1, maxLength: 255 },
-        description: { type: "string", minLength: 1, maxLength: 255 },
+        exhibitionName: { type: "string", minLength: 1, maxLength: 255 },
+        description: { type: "string" },
         order: { type: ["string", "number"], minLength: 1 },
       },
     };
