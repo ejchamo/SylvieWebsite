@@ -34,13 +34,12 @@ imagesRouter.get("/years", async (req, res) => {
 imagesRouter.get("/:year", async (req, res) => {
   try {
     const { year } = req.params;
-    const response = await Image.query()
+    const yearImages = await Image.query()
       .where("year", year)
       .orderBy("order")
       .where("carousel", false);
-    const titles = response.map((title) => title.title);
 
-    return res.status(200).json({ titles });
+    return res.status(200).json({ yearImages });
   } catch (error) {
     return res.status(500).json({ errors: error });
   }

@@ -2,12 +2,14 @@ import React from "react";
 import getTitles from "../../services/getTitles";
 
 const YearTile = (props) => {
-  const { year, selectedYear, setSelectedYear, setTitles } = props;
+  const { year, selectedYear, setSelectedYear, setTitles, setImages } = props;
 
   const handleClick = () => {
     setSelectedYear(year);
     getTitles(year).then((response) => {
-      setTitles(response.titles);
+      const titles = response.yearImages.map((image) => image.title);
+      setTitles(titles);
+      setImages(response.yearImages);
     });
   };
 
