@@ -2,7 +2,7 @@ import React from "react";
 import YearTile from "./YearTile";
 
 const YearsList = (props) => {
-  const { years, selectedYear, setSelectedYear, setTitles } = props;
+  const { years, selectedYear, setSelectedYear, setTitles, setImages } = props;
 
   const yearTiles = years.map((year) => {
     return (
@@ -12,6 +12,7 @@ const YearsList = (props) => {
         selectedYear={selectedYear}
         setSelectedYear={setSelectedYear}
         setTitles={setTitles}
+        setImages={setImages}
       />
     );
   });

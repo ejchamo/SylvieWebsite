@@ -12,7 +12,7 @@ const ImageTile = (props) => {
   let editOption = <></>;
 
   if (image) {
-    let imageDetails = image.image;
+    let imageDetails = image;
     if (user && user.admin) {
       deleteOption = <DeleteButton service={deleteImage} id={imageDetails.id} />;
       editOption = (

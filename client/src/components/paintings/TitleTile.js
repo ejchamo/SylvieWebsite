@@ -2,12 +2,12 @@ import React from "react";
 import getImage from "../../services/getImage";
 
 const TitleTile = (props) => {
-  const { title, setImage, selectedTitle, setSelectedTitle } = props;
+  const { title, setImages, selectedTitle, setSelectedTitle } = props;
 
   const handleClick = () => {
     setSelectedTitle(title);
     getImage(title).then((response) => {
-      setImage(response);
+      setImages([response.image]);
     });
   };
 

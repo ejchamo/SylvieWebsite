@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import getYears from "../../services/getYears";
 import YearsList from "./YearsList";
 import TitlesList from "./TitlesList";
+import ImagesList from "./ImagesList";
 import ImageTile from "./ImageTile";
 
 const Paintings = (props) => {
+  const { user } = props;
   const [years, setYears] = useState([]);
   const [titles, setTitles] = useState([]);
-  const [image, setImage] = useState(undefined);
+  const [images, setImages] = useState([]);
   const [selectedYear, setSelectedYear] = useState(undefined);
   const [selectedTitle, setSelectedTitle] = useState(undefined);
 
@@ -26,18 +28,19 @@ const Paintings = (props) => {
             selectedYear={selectedYear}
             setSelectedYear={setSelectedYear}
             setTitles={setTitles}
+            setImages={setImages}
           />
         </div>
         <div className="cell medium-1">
           <TitlesList
             titles={titles}
-            setImage={setImage}
+            setImages={setImages}
             selectedTitle={selectedTitle}
             setSelectedTitle={setSelectedTitle}
           />
         </div>
         <div className="cell medium-10">
-          <ImageTile image={image} user={props.user} />
+          <ImagesList images={images} user={user} />
         </div>
       </div>
     </div>
