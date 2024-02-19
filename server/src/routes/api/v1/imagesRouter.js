@@ -22,7 +22,10 @@ imagesRouter.get("/carousel", async (req, res) => {
 
 imagesRouter.get("/years", async (req, res) => {
   try {
-    const response = await Image.query().distinct("year").where("carousel", false);
+    const response = await Image.query()
+      .distinct("year")
+      .where("carousel", false)
+      .orderBy("year", "desc");
     const years = response.map((year) => year.year);
 
     return res.status(200).json({ years });
