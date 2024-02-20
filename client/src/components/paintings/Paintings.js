@@ -37,7 +37,7 @@ const Paintings = (props) => {
             setImages={setImages}
           />
         </div>
-        <div className="cell medium-1">
+        <div className="cell medium-3 scrollable-column">
           <TitlesList
             titles={titles}
             setImages={setImages}
@@ -45,7 +45,7 @@ const Paintings = (props) => {
             setSelectedTitle={setSelectedTitle}
           />
         </div>
-        <div className="cell medium-10">
+        <div className="cell medium-6 scrollable-column">
           <ImagesList images={images} user={user} />
         </div>
       </div>
