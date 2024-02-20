@@ -109,3 +109,13 @@ form {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.about {
+  height: 90vh;
+  width: 80%;
+}
+
+.scrollable-pre {
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
