@@ -38,7 +38,12 @@ pre {
 
 .years-list,
 .titles-list {
-  padding: 10%;
+  padding: 5px;
+}
+
+.year-tile,
+.title-tile {
+  margin-bottom: 10px;
 }
 
 .navlink {
@@ -67,14 +72,26 @@ pre {
   display: none !important;
 }
 
-.carousel img {
-  height: 80vh !important;
+.carousel img,
+.image-tile img {
+  height: 60vh !important;
   width: auto;
   object-fit: contain;
 }
 
+.images-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-tile-details {
+  text-align: center;
+  padding: 5%;
+}
+
 .image-options {
-  padding: 5px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -84,4 +101,21 @@ form {
   display: flex;
   flex-direction: column;
   padding: 5%;
+}
+
+.scrollable-column {
+  height: 90vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.about {
+  height: 90vh;
+  width: 80%;
+}
+
+.scrollable-pre {
+  overflow-y: auto;
+  white-space: pre-wrap;
 }

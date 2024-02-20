@@ -64,10 +64,10 @@ const About = (props) => {
   }
 
   return (
-    <div>
+    <div className="about">
       <h1>About Me</h1>
       {editOption}
-      <pre>{about.details}</pre>
+      <pre className="scrollable-pre">{about.details}</pre>
     </div>
   );
 };

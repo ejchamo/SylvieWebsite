@@ -29,12 +29,17 @@ const ImageTile = (props) => {
 
     imageTile = (
       <div className="image-tile">
-        {editOption}
-        {deleteOption}
-        <img src={imageDetails.image} alt={imageDetails.title} />
-        {imageDetails.title}
-        {imageDetails.medium}
-        {imageDetails.dimensions}
+        <div>
+          {editOption}
+          {deleteOption}
+        </div>
+        <div>
+          <img src={imageDetails.image} alt={imageDetails.title} />
+        </div>
+        <div className="image-tile-details">
+          <em>{imageDetails.title}</em>
+          {`, ${imageDetails.year}, ${imageDetails.medium}, ${imageDetails.dimensions}`}
+        </div>
       </div>
     );
   }
