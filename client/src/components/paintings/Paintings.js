@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import getYears from "../../services/getYears";
+import getTitles from "../../services/getTitles";
 import YearsList from "./YearsList";
 import TitlesList from "./TitlesList";
 import ImagesList from "./ImagesList";
-import ImageTile from "./ImageTile";
 
 const Paintings = (props) => {
   const { user } = props;
@@ -16,6 +16,12 @@ const Paintings = (props) => {
   useEffect(() => {
     getYears().then((response) => {
       setYears(response.years);
+      setSelectedYear(response.years[0]);
+      getTitles(response.years[0]).then((response) => {
+        const titles = response.yearImages.map((image) => image.title);
+        setTitles(titles);
+        setImages(response.yearImages);
+      });
     });
   }, []);
 
