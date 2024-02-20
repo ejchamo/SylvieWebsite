@@ -1,14 +1,15 @@
 import React from "react";
-import getImage from "../../services/getImage";
 
 const TitleTile = (props) => {
-  const { title, setImages, selectedTitle, setSelectedTitle } = props;
+  const { title, selectedTitle, setSelectedTitle } = props;
 
   const handleClick = () => {
     setSelectedTitle(title);
-    getImage(title).then((response) => {
-      setImages([response.image]);
-    });
+    const imageElement = document.querySelector(`img[alt="${title}"]`);
+
+    if (imageElement) {
+      imageElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   let isSelected = "";

@@ -40,7 +40,6 @@ const Paintings = (props) => {
         <div className="cell medium-3 scrollable-column">
           <TitlesList
             titles={titles}
-            setImages={setImages}
             selectedTitle={selectedTitle}
             setSelectedTitle={setSelectedTitle}
           />
