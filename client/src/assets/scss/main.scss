@@ -18,14 +18,9 @@ pre {
   font-family: "Helvetica", sans-serif !important;
 }
 
-.selected-year {
-  background-color: blue;
-  color: #000;
-}
-
+.selected-year,
 .selected-title {
-  background-color: green;
-  color: #000;
+  text-decoration: underline;
 }
 
 .NavBar {
