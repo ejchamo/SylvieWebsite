@@ -51,7 +51,7 @@ const CarouselImages = (props) => {
           src={image.image}
           alt={`Small slide ${i}`}
           onClick={() => setIndex(i)}
-          style={{ width: "100px", cursor: "pointer" }}
+          style={{ width: "75px", cursor: "pointer" }}
         />
         {editOption}
       </span>
