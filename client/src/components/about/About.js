@@ -65,7 +65,6 @@ const About = (props) => {
 
   return (
     <div className="about">
-      <h1>About Me</h1>
       {editOption}
       <pre className="scrollable-pre">{about.details}</pre>
     </div>
