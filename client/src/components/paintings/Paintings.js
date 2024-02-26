@@ -44,7 +44,7 @@ const Paintings = (props) => {
             setSelectedTitle={setSelectedTitle}
           />
         </div>
-        <div className="cell medium-6 scrollable-column">
+        <div className="cell medium-8 scrollable-column">
           <ImagesList images={images} user={user} />
         </div>
       </div>

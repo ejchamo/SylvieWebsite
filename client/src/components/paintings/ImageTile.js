@@ -13,6 +13,7 @@ const ImageTile = (props) => {
 
   if (image) {
     let imageDetails = image;
+    let displaySize = imageDetails.displaySize;
     if (user && user.admin) {
       deleteOption = <DeleteButton service={deleteImage} id={imageDetails.id} />;
       editOption = (
@@ -34,7 +35,11 @@ const ImageTile = (props) => {
           {deleteOption}
         </div>
         <div>
-          <img src={imageDetails.image} alt={imageDetails.title} />
+          <img
+            src={imageDetails.image}
+            alt={imageDetails.title}
+            className={`${displaySize}-display`}
+          />
         </div>
         <div className="image-tile-details">
           <em>{imageDetails.title}</em>

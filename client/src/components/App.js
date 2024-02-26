@@ -33,10 +33,10 @@ const App = (props) => {
   return (
     <Router>
       <div className="grid-x">
-        <div className="cell medium-2">
+        <div className="cell medium-1">
           <NavBar user={currentUser} />
         </div>
-        <div className="cell medium-10 display">
+        <div className="cell medium-11 display">
           <Switch>
             <Switch>
               <Route
