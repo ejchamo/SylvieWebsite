@@ -12,7 +12,7 @@ const NavBar = ({ user }) => {
   let signoutButton = <></>;
   let newImageButton = <></>;
   let newExperienceButton = <></>;
-  let mobileMenu = <></>;
+  let mobileMenuButton = <></>;
 
   if (user) {
     newImageButton = [
@@ -33,7 +33,12 @@ const NavBar = ({ user }) => {
   }
 
   const instagramLink = (
-    <a href="https://www.instagram.com/sylvie__mayer/" target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://www.instagram.com/sylvie__mayer/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="instagram-container"
+    >
       <FontAwesomeIcon icon={faInstagram} className="navlink instagram" />
     </a>
   );
@@ -45,8 +50,8 @@ const NavBar = ({ user }) => {
   };
 
   if (window.innerWidth < 768) {
-    mobileMenu = (
-      <div className="mobileMenu" onClick={handleMobileMenu}>
+    mobileMenuButton = (
+      <div className="mobileMenuButton" onClick={handleMobileMenu}>
         <FontAwesomeIcon icon={faBars} />
       </div>
     );
@@ -58,7 +63,7 @@ const NavBar = ({ user }) => {
 
   return (
     <>
-      {mobileMenu}
+      {mobileMenuButton}
       <div className={`NavBar ${menuClassName}`}>
         <Link to="/" className="navlink" onClick={handleMobileMenu}>
           Sylvie Mayer
