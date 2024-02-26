@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = ({ user }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   let signoutButton = <></>;
   let newImageButton = <></>;
   let newExperienceButton = <></>;
+  let mobileMenu = <></>;
 
   if (user) {
     newImageButton = [
@@ -34,28 +38,49 @@ const NavBar = ({ user }) => {
     </a>
   );
 
+  let menuClassName = "";
+
+  const handleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  if (window.innerWidth < 768) {
+    mobileMenu = (
+      <div className="mobileMenu" onClick={handleMobileMenu}>
+        <FontAwesomeIcon icon={faBars} />
+      </div>
+    );
+  }
+
+  if (mobileMenuOpen) {
+    menuClassName = "mobileMenu";
+  }
+
   return (
-    <div className="NavBar">
-      <Link to="/" className="navlink">
-        Sylvie Mayer
-      </Link>
-      <Link to="/paintings" className="navlink">
-        Paintings
-      </Link>
-      <Link to="/about" className="navlink">
-        About
-      </Link>
-      <Link to="/cv" className="navlink">
-        CV
-      </Link>
-      <Link to="/contact" className="navlink">
-        Contact
-      </Link>
-      {instagramLink}
-      {newImageButton}
-      {newExperienceButton}
-      {signoutButton}
-    </div>
+    <>
+      {mobileMenu}
+      <div className={`NavBar ${menuClassName}`}>
+        <Link to="/" className="navlink" onClick={handleMobileMenu}>
+          Sylvie Mayer
+        </Link>
+        <Link to="/paintings" className="navlink" onClick={handleMobileMenu}>
+          Paintings
+        </Link>
+        <Link to="/about" className="navlink" onClick={handleMobileMenu}>
+          About
+        </Link>
+        <Link to="/cv" className="navlink" onClick={handleMobileMenu}>
+          CV
+        </Link>
+        <Link to="/contact" className="navlink" onClick={handleMobileMenu}>
+          Contact
+        </Link>
+        {instagramLink}
+        {newImageButton}
+        {newExperienceButton}
+        {signoutButton}
+      </div>
+    </>
   );
 };
 

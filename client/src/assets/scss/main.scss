@@ -115,3 +115,17 @@ form {
   overflow-y: auto;
   white-space: pre-wrap;
 }
+
+@media screen and (max-width: 768px) {
+  .NavBar {
+    display: none;
+  }
+
+  .NavBar.mobileMenu {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding-top: 20%;
+    padding-left: 20%;
+  }
+}
