@@ -25,6 +25,12 @@ const Paintings = (props) => {
     });
   }, []);
 
+  let titlesFormat = "3 scrollable-column";
+
+  if (window.innerWidth < 640) {
+    titlesFormat = "1";
+  }
+
   return (
     <div className="paintings-container">
       <div className="grid-x grid-margin-x">
@@ -37,7 +43,7 @@ const Paintings = (props) => {
             setImages={setImages}
           />
         </div>
-        <div className="cell medium-3 scrollable-column">
+        <div className={`cell medium-${titlesFormat}`}>
           <TitlesList
             titles={titles}
             selectedTitle={selectedTitle}

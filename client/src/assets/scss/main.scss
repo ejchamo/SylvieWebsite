@@ -160,6 +160,7 @@ form {
     flex-direction: column;
     align-items: flex-end;
     padding: 10px;
+    z-index: 1;
 
     .instagram-container {
       display: flex;
@@ -168,6 +169,19 @@ form {
         height: 8%;
         width: 8%;
       }
+    }
+  }
+
+  .years-list,
+  .titles-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0;
+
+    .year-tile,
+    .title-tile {
+      margin-right: 20px;
     }
   }
 }
