@@ -54,14 +54,17 @@ const ExperienceTile = (props) => {
             />
           </label>
           <label>
-            Exhibition Name:
-            <input
-              type="text"
-              name="exhibitionName"
-              value={newExperience.exhibitionName}
-              onChange={handleInputChange}
-            />
+            Type:
+            <select name="type" value={newExperience.type} onChange={handleInputChange}>
+              <option value="education">Education</option>
+              <option value="solo-exhibition">Solo Exhibition</option>
+              <option value="group-exhibition">Group Exhibition</option>
+              <option value="residency">Residency</option>
+              <option value="award">Award</option>
+              <option value="teaching">Teaching</option>
+            </select>
           </label>
+
           <label>
             Description:
             <textarea
@@ -90,8 +93,7 @@ const ExperienceTile = (props) => {
     <div>
       {editOption}
       {deleteOption}
-      <h2>{experience.title}</h2>
-      <h5>{experience.exhibitionName}</h5>
+      <h5>{experience.title}</h5>
       <pre>{experience.description}</pre>
     </div>
   );
