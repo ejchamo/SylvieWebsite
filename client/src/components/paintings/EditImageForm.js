@@ -4,7 +4,7 @@ import editImage from "../../services/editImage";
 
 const EditImageForm = (props) => {
   const { image, setIsEditing } = props;
-  const [newImage, setNewImage] = useState(image.image);
+  const [newImage, setNewImage] = useState(image);
 
   const handleInputChange = (event) => {
     setNewImage({
@@ -45,6 +45,14 @@ const EditImageForm = (props) => {
             value={newImage.dimensions}
             onChange={handleInputChange}
           />
+        </label>
+        <label>
+          Display Size:
+          <select name="displaySize" onChange={handleInputChange} value={newImage.displaySize}>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
         </label>
         <label>
           Order:

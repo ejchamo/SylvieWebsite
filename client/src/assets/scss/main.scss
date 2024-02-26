@@ -67,8 +67,7 @@ pre {
   display: none !important;
 }
 
-.carousel img,
-.image-tile img {
+.carousel img {
   height: 60vh !important;
   width: auto;
   object-fit: contain;
@@ -76,8 +75,28 @@ pre {
 
 .images-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-tile {
+  .large-display {
+    height: 80vh !important;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .medium-display {
+    height: 60vh !important;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .small-display {
+    height: 30vh !important;
+    width: auto;
+    object-fit: contain;
+  }
 }
 
 .image-tile-details {

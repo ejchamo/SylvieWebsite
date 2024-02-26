@@ -92,6 +92,14 @@ const NewImageForm = (props) => {
         />
       </label>
       <label>
+        Display Size:
+        <select name="displaySize" onChange={handleInputChange}>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </label>
+      <label>
         Order:
         <input type="number" name="order" onChange={handleInputChange} value={newImage.order} />
       </label>
