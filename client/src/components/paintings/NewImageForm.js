@@ -10,7 +10,7 @@ const NewImageForm = (props) => {
     year: "",
     medium: "",
     dimensions: "",
-    displaySize: "",
+    displaySize: "small",
     image: {},
     order: "",
     carousel: false,
@@ -22,7 +22,7 @@ const NewImageForm = (props) => {
     newImageBody.append("year", newImage.year);
     newImageBody.append("medium", newImage.medium);
     newImageBody.append("dimensions", newImage.dimensions);
-    newImageBody.append("displaySize", newImage.size);
+    newImageBody.append("displaySize", newImage.displaySize);
     newImageBody.append("image", newImage.image);
     newImageBody.append("order", newImage.order);
     newImageBody.append("carousel", newImage.carousel);
