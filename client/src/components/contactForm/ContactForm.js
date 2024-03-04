@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import sendEmail from "../../services/sendEmail";
 
-//create a form to send an email
-
 const ContactForm = () => {
   const [emailDetails, setEmailDetails] = useState({
     name: "",
@@ -38,20 +36,37 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input type="text" name="name" value={emailDetails.name} onChange={handleChange} />
+          <input
+            className="name-input"
+            type="text"
+            name="name"
+            value={emailDetails.name}
+            onChange={handleChange}
+          />
         </label>
         <br />
         <label>
           Email:
-          <input type="text" name="email" value={emailDetails.email} onChange={handleChange} />
+          <input
+            className="email-input"
+            type="text"
+            name="email"
+            value={emailDetails.email}
+            onChange={handleChange}
+          />
         </label>
         <br />
         <label>
           Message:
-          <textarea name="message" value={emailDetails.message} onChange={handleChange} />
+          <textarea
+            className="message-input"
+            name="message"
+            value={emailDetails.message}
+            onChange={handleChange}
+          />
         </label>
         <br />
-        <input type="submit" value="Send" />
+        <input className="contact-submit" type="submit" value="Send Message" />
       </form>
     </div>
   );
