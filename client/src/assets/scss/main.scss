@@ -139,4 +139,27 @@ form {
   white-space: pre-wrap;
 }
 
+.name-input,
+.email-input {
+  border: none;
+  border-bottom: 1px solid #cacaca;
+  outline: none;
+  box-shadow: none;
+  width: 50%;
+}
+
+.message-input {
+  width: 80%;
+  height: 30vh;
+}
+
+.contact-submit {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: #cacaca;
+  cursor: pointer;
+  width: 50%;
+}
+
 @import "mobile";
