@@ -59,7 +59,7 @@ const CarouselImages = (props) => {
   });
 
   if (isEditing) {
-    return <EditImageForm image={{ image: editImage }} setIsEditing={setIsEditing} />;
+    return <EditImageForm image={editImage} setIsEditing={setIsEditing} />;
   }
 
   return (
