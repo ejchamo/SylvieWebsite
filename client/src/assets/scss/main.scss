@@ -166,4 +166,10 @@ form {
   width: 50%;
 }
 
+.experience-type {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
 @import "mobile";

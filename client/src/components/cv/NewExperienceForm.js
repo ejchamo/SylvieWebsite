@@ -4,8 +4,8 @@ import { Redirect } from "react-router-dom";
 const NewExperienceForm = (props) => {
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [newExperience, setNewExperience] = useState({
-    title: "",
     type: "",
+    title: "",
     description: "",
     order: "",
   });
@@ -49,6 +49,17 @@ const NewExperienceForm = (props) => {
       <h1>Add New Experience</h1>
       <form onSubmit={handleSubmit}>
         <label>
+          Type:
+          <select name="type" value={newExperience.type} onChange={handleInputChange}>
+            <option value="Education">Education</option>
+            <option value="Solo Exhibitions">Solo Exhibitions</option>
+            <option value="Group Exhibitions">Group Exhibitions</option>
+            <option value="Residencies">Residencies</option>
+            <option value="Award">Awards</option>
+            <option value="Teaching">Teaching</option>
+          </select>
+        </label>
+        <label>
           Title:
           <input
             type="text"
@@ -56,17 +67,6 @@ const NewExperienceForm = (props) => {
             value={newExperience.title}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Type:
-          <select name="type" value={newExperience.type} onChange={handleInputChange}>
-            <option value="education">Education</option>
-            <option value="solo-exhibition">Solo Exhibition</option>
-            <option value="group-exhibition">Group Exhibition</option>
-            <option value="residency">Residency</option>
-            <option value="award">Award</option>
-            <option value="teaching">Teaching</option>
-          </select>
         </label>
         <label>
           Description:
