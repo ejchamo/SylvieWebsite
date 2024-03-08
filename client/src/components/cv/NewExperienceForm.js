@@ -55,7 +55,7 @@ const NewExperienceForm = (props) => {
             <option value="Solo Exhibitions">Solo Exhibitions</option>
             <option value="Group Exhibitions">Group Exhibitions</option>
             <option value="Residencies">Residencies</option>
-            <option value="Award">Awards</option>
+            <option value="Awards">Awards</option>
             <option value="Teaching">Teaching</option>
           </select>
         </label>
