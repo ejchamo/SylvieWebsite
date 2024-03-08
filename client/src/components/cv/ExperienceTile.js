@@ -45,15 +45,6 @@ const ExperienceTile = (props) => {
         <h1>Edit Experience</h1>
         <form onSubmit={handleExperienceEdit}>
           <label>
-            Title:
-            <input
-              type="text"
-              name="title"
-              value={newExperience.title}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
             Type:
             <select name="type" value={newExperience.type} onChange={handleInputChange}>
               <option value="Education">Education</option>
@@ -64,7 +55,15 @@ const ExperienceTile = (props) => {
               <option value="Teaching">Teaching</option>
             </select>
           </label>
-
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              value={newExperience.title}
+              onChange={handleInputChange}
+            />
+          </label>
           <label>
             Description:
             <textarea
