@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import getCarouselImages from "../../services/getCarouselImages";
 import EditImageForm from "../paintings/EditImageForm";
+import DeleteButton from "../layout/DeleteButton";
+import deleteImage from "../../services/deleteImage";
 
 const CarouselImages = (props) => {
   const { user } = props;
@@ -11,6 +13,7 @@ const CarouselImages = (props) => {
   const [editImage, setEditImage] = useState({});
 
   let editOption = <></>;
+  let deleteOption = <></>;
 
   useEffect(() => {
     getCarouselImages().then((response) => {
@@ -43,6 +46,8 @@ const CarouselImages = (props) => {
           Edit
         </button>
       );
+
+      deleteOption = <DeleteButton service={deleteImage} id={image.id} />;
     }
 
     return (
@@ -54,6 +59,7 @@ const CarouselImages = (props) => {
           style={{ width: "75px", cursor: "pointer" }}
         />
         {editOption}
+        {deleteOption}
       </span>
     );
   });
