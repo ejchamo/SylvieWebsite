@@ -56,12 +56,12 @@ const ExperienceTile = (props) => {
           <label>
             Type:
             <select name="type" value={newExperience.type} onChange={handleInputChange}>
-              <option value="education">Education</option>
-              <option value="solo-exhibition">Solo Exhibition</option>
-              <option value="group-exhibition">Group Exhibition</option>
-              <option value="residency">Residency</option>
-              <option value="award">Award</option>
-              <option value="teaching">Teaching</option>
+              <option value="Education">Education</option>
+              <option value="Solo Exhibitions">Solo Exhibitions</option>
+              <option value="Group Exhibitions">Group Exhibitions</option>
+              <option value="Residencies">Residencies</option>
+              <option value="Award">Awards</option>
+              <option value="Teaching">Teaching</option>
             </select>
           </label>
 
@@ -89,12 +89,21 @@ const ExperienceTile = (props) => {
     );
   }
 
+  if (["Solo Exhibitions", "Group Exhibitions"].includes(experience.type)) {
+    return (
+      <div className="experience-tile">
+        {editOption}
+        {deleteOption}
+        <i>{experience.title}</i>, {experience.description}
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="experience-tile">
       {editOption}
       {deleteOption}
-      <h5>{experience.title}</h5>
-      <pre>{experience.description}</pre>
+      {experience.title}, {experience.description}
     </div>
   );
 };
