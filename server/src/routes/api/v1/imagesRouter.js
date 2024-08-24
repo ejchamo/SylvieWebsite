@@ -22,13 +22,25 @@ imagesRouter.get("/carousel", async (req, res) => {
 
 imagesRouter.get("/years", async (req, res) => {
   try {
-    const response = await Image.query()
-      .distinct("year")
-      .where("carousel", false)
-      .orderBy("year", "desc");
+    const response = await Image.query().distinct("year").where("carousel", false);
     const years = response.map((year) => year.year);
 
-    return res.status(200).json({ years });
+    // Separate numeric and non-numeric values
+    const numericYears = years.filter((year) => !isNaN(year)).map(Number);
+    const nonNumericYears = years.filter((year) => isNaN(year));
+
+    // Sort numeric values in descending order
+    numericYears.sort((a, b) => b - a);
+
+    // Sort non-numeric values in descending order
+    nonNumericYears.sort((a, b) => b.localeCompare(b));
+
+    // Concatenate the sorted arrays
+    const sortedYears = [...numericYears, ...nonNumericYears];
+
+    console.log(sortedYears);
+
+    return res.status(200).json({ years: sortedYears });
   } catch (error) {
     return res.status(500).json({ errors: error });
   }
