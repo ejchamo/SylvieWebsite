@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
-import getYears from "../../services/getYears";
+import getProjects from "../../services/getProjects";
 import getTitles from "../../services/getTitles";
-import YearsList from "./YearsList";
+import ProjectsList from "./ProjectsList";
 import TitlesList from "./TitlesList";
 import ImagesList from "./ImagesList";
 
 const Paintings = (props) => {
   const { user } = props;
-  const [years, setYears] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [titles, setTitles] = useState([]);
   const [images, setImages] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(undefined);
+  const [selectedProject, setSelectedProject] = useState(undefined);
   const [selectedTitle, setSelectedTitle] = useState(undefined);
 
   useEffect(() => {
-    getYears().then((response) => {
-      setYears(response.years);
-      setSelectedYear(response.years[0]);
-      getTitles(response.years[0]).then((response) => {
-        const titles = response.yearImages.map((image) => image.title);
+    getProjects().then((response) => {
+      setProjects(response.projects);
+      setSelectedProject(response.projects[0]);
+      getTitles(response.projects[0]).then((response) => {
+        const titles = response.projectImages.map((image) => image.title);
         setTitles(titles);
-        setImages(response.yearImages);
+        setImages(response.projectImages);
       });
     });
   }, []);
@@ -35,10 +35,10 @@ const Paintings = (props) => {
     <div className="paintings-container">
       <div className="grid-x grid-margin-x">
         <div className="cell medium-1">
-          <YearsList
-            years={years}
-            selectedYear={selectedYear}
-            setSelectedYear={setSelectedYear}
+          <ProjectsList
+            projects={projects}
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
             setTitles={setTitles}
             setImages={setImages}
           />

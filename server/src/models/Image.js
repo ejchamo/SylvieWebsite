@@ -8,7 +8,7 @@ class Image extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["title", "year", "medium", "dimensions", "image", "order"],
+      required: ["title", "year", "medium", "dimensions", "image", "order", "project"],
       properties: {
         title: { type: "string", minLength: 1, maxLength: 255 },
         year: { type: ["string", "number"], minLength: 1 },
@@ -17,6 +17,7 @@ class Image extends Model {
         image: { type: "string", minLength: 1, maxLength: 255 },
         order: { type: ["string", "number"], minLength: 1 },
         carousel: { type: ["string", "boolean"] },
+        project: { type: "string", minLength: 1, maxLength: 255 },
       },
     };
   }

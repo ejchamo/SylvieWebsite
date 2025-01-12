@@ -43,7 +43,7 @@ const ImageTile = (props) => {
         </div>
         <div className="image-tile-details">
           <em>{imageDetails.title}</em>
-          {`, ${imageDetails.year}, ${imageDetails.medium}, ${imageDetails.dimensions}`}
+          {`, ${imageDetails.medium}, ${imageDetails.dimensions}, ${imageDetails.year}`}
         </div>
       </div>
     );

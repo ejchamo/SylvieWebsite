@@ -20,41 +20,29 @@ imagesRouter.get("/carousel", async (req, res) => {
   }
 });
 
-imagesRouter.get("/years", async (req, res) => {
+imagesRouter.get("/projects", async (req, res) => {
   try {
-    const response = await Image.query().distinct("year").where("carousel", false);
-    const years = response.map((year) => year.year);
+    const response = await Image.query()
+      .distinct("project")
+      .where("carousel", false)
+      .orderBy("project", "asc");
+    const projects = response.map((project) => project.project);
 
-    // Separate numeric and non-numeric values
-    const numericYears = years.filter((year) => !isNaN(year)).map(Number);
-    const nonNumericYears = years.filter((year) => isNaN(year));
-
-    // Sort numeric values in descending order
-    numericYears.sort((a, b) => b - a);
-
-    // Sort non-numeric values in descending order
-    nonNumericYears.sort((a, b) => b.localeCompare(b));
-
-    // Concatenate the sorted arrays
-    const sortedYears = [...numericYears, ...nonNumericYears];
-
-    console.log(sortedYears);
-
-    return res.status(200).json({ years: sortedYears });
+    return res.status(200).json({ projects });
   } catch (error) {
     return res.status(500).json({ errors: error });
   }
 });
 
-imagesRouter.get("/:year", async (req, res) => {
+imagesRouter.get("/:project", async (req, res) => {
   try {
-    const { year } = req.params;
-    const yearImages = await Image.query()
-      .where("year", year)
+    const { project } = req.params;
+    const projectImages = await Image.query()
+      .where("project", project)
       .orderBy("order")
       .where("carousel", false);
 
-    return res.status(200).json({ yearImages });
+    return res.status(200).json({ projectImages });
   } catch (error) {
     return res.status(500).json({ errors: error });
   }

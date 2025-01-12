@@ -31,14 +31,14 @@
     }
   }
 
-  .years-list,
+  .projects-list,
   .titles-list {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
     padding: 0;
 
-    .year-tile,
+    .project-tile,
     .title-tile {
       margin-right: 20px;
     }
