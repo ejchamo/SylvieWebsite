@@ -9,6 +9,7 @@ class ImageSerializer {
       "image",
       "order",
       "displaySize",
+      "project",
     ];
     const serializedImage = {};
     for (const attribute of allowedAttributes) {

@@ -14,6 +14,7 @@ const NewImageForm = (props) => {
     image: {},
     order: "",
     carousel: false,
+    project: "",
   });
 
   const postImage = async (newImageData) => {
@@ -26,6 +27,7 @@ const NewImageForm = (props) => {
     newImageBody.append("image", newImage.image);
     newImageBody.append("order", newImage.order);
     newImageBody.append("carousel", newImage.carousel);
+    newImageBody.append("project", newImage.project);
 
     try {
       const response = await fetch("/api/v1/images", {
@@ -77,8 +79,8 @@ const NewImageForm = (props) => {
         <input type="text" name="title" onChange={handleInputChange} value={newImage.title} />
       </label>
       <label>
-        Year:
-        <input type="text" name="year" onChange={handleInputChange} value={newImage.year} />
+        Project:
+        <input type="text" name="project" onChange={handleInputChange} value={newImage.project} />
       </label>
       <label>
         Medium:
@@ -92,6 +94,10 @@ const NewImageForm = (props) => {
           onChange={handleInputChange}
           value={newImage.dimensions}
         />
+      </label>
+      <label>
+        Year:
+        <input type="text" name="year" onChange={handleInputChange} value={newImage.year} />
       </label>
       <label>
         Display Size:

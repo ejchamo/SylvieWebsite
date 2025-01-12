@@ -30,8 +30,8 @@ const EditImageForm = (props) => {
           <input type="text" name="title" value={newImage.title} onChange={handleInputChange} />
         </label>
         <label>
-          Year:
-          <input type="text" name="year" value={newImage.year} onChange={handleInputChange} />
+          Project:
+          <input type="text" name="project" value={newImage.project} onChange={handleInputChange} />
         </label>
         <label>
           Medium:
@@ -45,6 +45,10 @@ const EditImageForm = (props) => {
             value={newImage.dimensions}
             onChange={handleInputChange}
           />
+        </label>
+        <label>
+          Year:
+          <input type="text" name="year" value={newImage.year} onChange={handleInputChange} />
         </label>
         <label>
           Display Size:

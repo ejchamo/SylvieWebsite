@@ -18,7 +18,7 @@ pre {
   font-family: "Helvetica", sans-serif !important;
 }
 
-.selected-year,
+.selected-project,
 .selected-title {
   text-decoration: underline;
 }
@@ -31,12 +31,12 @@ pre {
   list-style-type: none;
 }
 
-.years-list,
+.projects-list,
 .titles-list {
   padding: 5px;
 }
 
-.year-tile,
+.project-tile,
 .title-tile {
   margin-bottom: 10px;
   &:hover {

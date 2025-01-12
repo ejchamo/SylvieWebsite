@@ -1,6 +1,6 @@
-const getTitles = async (project) => {
+const getProjects = async () => {
   try {
-    const response = await fetch(`/api/v1/images/${project}`);
+    const response = await fetch("/api/v1/images/projects");
     if (!response.ok) {
       const errorMessage = `${response.status} (${response.statusText})`;
       const error = new Error(errorMessage);
@@ -15,4 +15,4 @@ const getTitles = async (project) => {
   }
 };
 
-export default getTitles;
+export default getProjects;
