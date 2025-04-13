@@ -24,7 +24,7 @@ const ExperienceList = (props) => {
     .sort(([typeA], [typeB]) => typeOrder.indexOf(typeA) - typeOrder.indexOf(typeB))
     .map(([type, experiences]) => (
       <div key={type} className="experience-type">
-        <h3>{type}</h3>
+        <div className="experience-category">{type}</div>
         {experiences.map((experience) => (
           <ExperienceTile key={experience.id} user={user} experience={experience} />
         ))}
